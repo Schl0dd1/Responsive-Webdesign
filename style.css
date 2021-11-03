@@ -1,0 +1,226 @@
+* {
+  box-sizing: border-box;
+} /*immer gleich als erste anweisung schreiben, hilft fehler zu vermeiden*/
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+
+header {
+  display: flex; /*li-items stehen nebeneinander*/
+  justify-content: space-between;
+  height: 64px;
+  padding: 16px;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+}
+
+nav {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: black;
+}
+
+#logo {
+  height: 40px;
+}
+
+/* id (kann nur einmal pro doc verwendet werden*/
+#ul-navi {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /*li-items stehen nebeneinander*/
+  flex-direction: column; /*pop-up menü untereinander stehend*/
+  align-items: center; /*pop-up-menü mitte-bündig*/
+}
+
+#ul-navi li,
+#ul-footer li,
+#icon-footer li {
+  margin: 8px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer > nav {
+  display: flex;
+  flex-direction: column;
+}
+
+#ul-footer,
+#icon-footer {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#ul-footer {
+  flex-direction: column;
+}
+
+#icon-footer {
+  font-size: 32px; /* oder 2 rem = 2*16px*/
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  display: flex; /*li-items stehen nebeneinander*/
+}
+
+.show {
+  display: block;
+  position: absolute;
+  background-color: white;
+  top: 64px;
+  left: 0;
+  width: 100%;
+}
+#hero {
+  color: white;
+  height: 100vh; /*vh = viewport, so groß wie der bildschirm ist*/
+  text-align: center;
+  background-image: url(img/intro.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; /* Fotogrößer immer dem bildschirm angepasst*/
+  background-position: center; /*immer bildmittelpunkt in der mitte*/
+
+  /* zusätzlich zu text align=center werden flexbox-attribute verwendet: */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  font-size: 16px;
+  font-weight: bold;
+  background-color: rgb(2, 197, 2);
+  color: white;
+  padding: 15px 25px; /* erste angabe oben/unten, zweite ang. links/rechts*/
+  border: solid;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  /*box-shadow: 0 4px 8px 0px; /*shadow generator websites*/
+  border-radius: 5px;
+  transition: all 0.2s ease-in; /*button wird in 0.4s eingeblendet*/
+}
+
+.button:hover {
+  color: rgb(2, 197, 2);
+  background-color: white;
+}
+
+.card {
+  text-align: center;
+  color: darkred;
+  background-color: tomato;
+  box-shadow: 5px 5px 6px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  margin: 16px;
+}
+
+/*responsives bild: Bild wächst mit: */
+.card img {
+  width: 100%;
+  display: block;
+}
+
+/*pfad zur klasse .button innerhalb der klasse .card*/
+.card .button {
+  background-color: darkslateblue;
+  display: inline-block;
+  margin: 16px;
+}
+.card .button:hover {
+  color: darkslateblue;
+  background-color: white;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+aside {
+  color: white;
+  text-align: center;
+  padding: 50px;
+  background-color: darkslateblue;
+}
+
+aside .button {
+  color: darkslateblue;
+  background-color: white;
+}
+
+input {
+  padding: 15px 15px;
+  border-radius: 0px;
+  border-color: darkslateblue;
+}
+
+form {
+  display: block;
+  justify-content: center;
+}
+
+/*Media query ab 500px für Desktop*/
+@media (min-width: 500px) {
+  #ul-navi {
+    flex-direction: row;
+  }
+
+  button {
+    display: none; /* ab 880px verschwindet der buttion*/
+  }
+  nav {
+    display: block;
+  }
+
+  /*macht, dass die artikel nebeneinander stehen, bei großem bildschirm*/
+  .small-boxes {
+    display: flex;
+    flex-direction: row;
+  }
+  form {
+    display: flex;
+  }
+  input {
+    margin-right: 5px;
+  }
+
+  #ul-footer {
+    flex-direction: row;
+  }
+  footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+#rezepte p {
+  padding: 20px;
+}
